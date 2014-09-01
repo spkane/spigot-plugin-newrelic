@@ -1,0 +1,22 @@
+# scratch file, note, whatever
+*ignoreme
+
+# For MacOS:
+.DS_Store
+
+# For TextMate
+*.tmproj
+tmtags
+
+# For emacs:
+*~
+\#*
+.\#*
+
+# For vim:
+*.swp
+
+# For eclipse:
+bin/
+
+

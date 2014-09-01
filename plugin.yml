@@ -1,0 +1,13 @@
+name: NewRelicPlugin
+main: me.spkane.NewRelicPlugin
+version: 0.1
+description: 'New Relic plugin. Very special thanks to StromCoreFilms great Bukkit Tutorials on YouTube, the Reddit Mineraft community for encouragement, and my children for beta-testing.'
+author: spkane
+database: false
+commands:
+   nrenable:
+      description: 'Enable New Relic plugin reporting.'
+      usage: /<command>
+   nrdisable:
+      description: 'Disable New Relic plugin reporting.'
+      usage: /<command>
