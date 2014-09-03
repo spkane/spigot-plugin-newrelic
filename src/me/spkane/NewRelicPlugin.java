@@ -79,12 +79,16 @@ public class NewRelicPlugin extends JavaPlugin {
 	        Updater updater = new Updater(this, 84649, this.getFile(), UpdateType.NO_DOWNLOAD, this.getConfig().getBoolean("updates.progress"));
 			if (updater.getResult() == UpdateResult.UPDATE_AVAILABLE) {
 			    this.getServer().broadcastMessage("New Relic plugin update available! " + updater.getLatestName());
+			} else {
+				this.getServer().broadcastMessage("There is no New Relic plugin update available.");
 			}
 			return true;
 		} else if (cmd.getName().equalsIgnoreCase("nrupdate")) {
 	        Updater updater = new Updater(this, 84649, this.getFile(), UpdateType.DEFAULT, this.getConfig().getBoolean("updates.progress"));
 			if (updater.getResult() == UpdateResult.UPDATE_AVAILABLE) {
 			    this.getServer().broadcastMessage("Downloading New Relic plugin update! " + updater.getLatestName());
+			} else {
+				this.getServer().broadcastMessage("There is no New Relic plugin update available.");
 			}
 			return true;
 		}
