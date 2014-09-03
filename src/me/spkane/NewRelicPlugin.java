@@ -1,5 +1,9 @@
 package me.spkane;
 
+import net.gravitydevelopment.updater.Updater;
+import net.gravitydevelopment.updater.Updater.UpdateResult;
+import net.gravitydevelopment.updater.Updater.UpdateType;
+
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -16,6 +20,8 @@ public class NewRelicPlugin extends JavaPlugin {
 	public void onEnable() {
 		new NewRelicListener(this);
 		this.getConfig().addDefault("enabled", true);
+		this.getConfig().addDefault("updates.apply", true);
+		this.getConfig().addDefault("updates.progress", true);
 		this.getConfig().addDefault("track.entity.death", true);
 		this.getConfig().addDefault("track.creature.spawn", true);
 		this.getConfig().addDefault("track.player.death", true);
@@ -34,6 +40,12 @@ public class NewRelicPlugin extends JavaPlugin {
 		saveConfig();
 		PluginManager pm = getServer().getPluginManager();
 		pm.addPermission(nrPermission);
+		if (this.getConfig().getBoolean("updates.apply") == true) {
+		    Updater updater = new Updater(this, 84649, this.getFile(), UpdateType.DEFAULT, this.getConfig().getBoolean("updates.progress"));
+		    if (updater.getResult() == UpdateResult.UPDATE_AVAILABLE) {
+		        this.getLogger().info("New Relic plugin update available! " + updater.getLatestName());
+		    }
+		}
 	}
 
 	@Override
@@ -61,6 +73,18 @@ public class NewRelicPlugin extends JavaPlugin {
 				player.sendMessage( ChatColor.GREEN + "New Relic plugin reporting has been enabled.");
 			}else{
 				player.sendMessage( ChatColor.RED + "Sorry, but you don't have permissions for this!");
+			}
+			return true;
+		} else if (cmd.getName().equalsIgnoreCase("nrcheck")) {
+	        Updater updater = new Updater(this, 84649, this.getFile(), UpdateType.NO_DOWNLOAD, this.getConfig().getBoolean("updates.progress"));
+			if (updater.getResult() == UpdateResult.UPDATE_AVAILABLE) {
+			    this.getServer().broadcastMessage("New Relic plugin update available! " + updater.getLatestName());
+			}
+			return true;
+		} else if (cmd.getName().equalsIgnoreCase("nrupdate")) {
+	        Updater updater = new Updater(this, 84649, this.getFile(), UpdateType.DEFAULT, this.getConfig().getBoolean("updates.progress"));
+			if (updater.getResult() == UpdateResult.UPDATE_AVAILABLE) {
+			    this.getServer().broadcastMessage("Downloading New Relic plugin update! " + updater.getLatestName());
 			}
 			return true;
 		}

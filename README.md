@@ -2,7 +2,8 @@ This Bukkit plugin allows people with a free or paid New Relic account to send p
 
 # Installation
 
-* Download the latest New Relic Java Agent for manual installs
+* Create a New Relic account, if you don't have one.
+* Download the latest New Relic Java Agent for manual installs from New Relic's Web Site.
 * Unzip the archive in the root directory of your minecraft server. The same location as your Craftbukkit jar.
 * Add "-javaagent:newrelic/newrelic.jar" to the java launch command that you use for your server.
 * Add the newrelic-api.jar to your launch classpath with something like "-cp craftbukkit.jar:newrelic/newrelic-api.jar"
@@ -19,6 +20,8 @@ This Bukkit plugin allows people with a free or paid New Relic account to send p
 
 * */nrenable* - enable reporting to New Relic
 * */nrdisable* - disable reporting to New Relic
+* */nrcheck* - check for an updated New Relic plugin
+* */nrupdate* - download and install an updated New Relic plugin
 
 # Permissions
 
@@ -27,7 +30,11 @@ This Bukkit plugin allows people with a free or paid New Relic account to send p
 
 # Configuration
 
-```
+``
+enabled: true
+updates:
+  apply: true
+  progress: true
 track:
   entity:
     death: true

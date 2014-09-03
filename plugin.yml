@@ -1,7 +1,7 @@
 name: NewRelicPlugin
 main: me.spkane.NewRelicPlugin
-version: 0.1
-description: 'New Relic plugin. Very special thanks to StromCoreFilms great Bukkit Tutorials on YouTube, the Reddit Mineraft community for encouragement, and my children for beta-testing.'
+version: 0.2
+description: 'A New Relic bukkit plugin for collecting data from serve events and reporting this data to the New Relic platform for analysis and graphing.'
 author: spkane
 database: false
 commands:
@@ -10,4 +10,10 @@ commands:
       usage: /<command>
    nrdisable:
       description: 'Disable New Relic plugin reporting.'
+      usage: /<command>
+   nrcheck:
+      description: 'Check for an updated New Relic plugin.'
+      usage: /<command>
+   nrupdate:
+      description: 'Download and install an updated New Relic plugin.'
       usage: /<command>

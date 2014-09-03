@@ -53,8 +53,10 @@ public class NewRelicListener implements Listener {
 		    	NewRelic.addCustomParameter("killedByPlayer", "false");
 	    		NewRelic.addCustomParameter("playerName", "");
 		    }
-		    String entityname = entity.toString();
+		    String entityname = entity.getType().toString();
 		    NewRelic.addCustomParameter("entityType", entityname);
+		} else {
+			NewRelic.ignoreTransaction();
 		}
 	}
 
@@ -73,6 +75,8 @@ public class NewRelicListener implements Listener {
 		    } else {
 		    	NewRelic.addCustomParameter("spawnReason", "");
 		    }
+		} else {
+			NewRelic.ignoreTransaction();
 		}
 	}
 
@@ -85,6 +89,8 @@ public class NewRelicListener implements Listener {
 			Player player = e.getEntity();
 			NewRelic.addCustomParameter("playerName", player.getName().toString());
 			NewRelic.addCustomParameter("playerDeathMessage", e.getDeathMessage());
+		} else {
+			NewRelic.ignoreTransaction();
 		}
 	}
 	
@@ -101,6 +107,8 @@ public class NewRelicListener implements Listener {
 			} else {
 				NewRelic.addCustomParameter("playerNew", "false");
 			}
+		} else {
+			NewRelic.ignoreTransaction();
 		}
 	}
 	
@@ -117,6 +125,8 @@ public class NewRelicListener implements Listener {
 			} else {
 			    NewRelic.addCustomParameter("playerKickReason", "");
 			}
+		} else {
+			NewRelic.ignoreTransaction();
 		}
 	}
 	
@@ -128,6 +138,8 @@ public class NewRelicListener implements Listener {
 			NewRelic.setTransactionName(null, "PlayerQuitEvent");
 			Player player = e.getPlayer();
 			NewRelic.addCustomParameter("playerName", player.getName().toString());
+		} else {
+			NewRelic.ignoreTransaction();
 		}
 	}
 
@@ -147,6 +159,8 @@ public class NewRelicListener implements Listener {
 				bedspawn = "false";
 			}
 			NewRelic.addCustomParameter("playerIsBedSpawn", bedspawn);
+		} else {
+			NewRelic.ignoreTransaction();
 		}
 	}
 	
@@ -165,6 +179,8 @@ public class NewRelicListener implements Listener {
 			}
 			NewRelic.addCustomParameter("playerTeleportFrom", e.getFrom().toString());
 			NewRelic.addCustomParameter("playerTeleportTo", e.getTo().toString());
+		} else {
+			NewRelic.ignoreTransaction();
 		}
 	}
 	
@@ -177,7 +193,9 @@ public class NewRelicListener implements Listener {
 			Player player = e.getPlayer();
 			Block block = e.getBlock();
 			NewRelic.addCustomParameter("playerName", player.getName().toString());
-			NewRelic.addCustomParameter("blockType", block.toString());
+			NewRelic.addCustomParameter("blockType", block.getType().toString());
+		} else {
+			NewRelic.ignoreTransaction();
 		}
 	}
 
@@ -190,7 +208,9 @@ public class NewRelicListener implements Listener {
 			Player player = e.getPlayer();
 			Block block = e.getBlock();
 			NewRelic.addCustomParameter("playerName", player.getName().toString());
-			NewRelic.addCustomParameter("blockType", block.toString());
+			NewRelic.addCustomParameter("blockType", block.getType().toString());
+		} else {
+			NewRelic.ignoreTransaction();
 		}
 	}
 
@@ -202,6 +222,8 @@ public class NewRelicListener implements Listener {
 			NewRelic.setTransactionName(null, "RemoteCommandEvent");
 			NewRelic.addCustomParameter("commandSender", e.getSender().toString());
 			NewRelic.addCustomParameter("command", e.getCommand());
+		} else {
+			NewRelic.ignoreTransaction();
 		}
 	}
 
@@ -213,6 +235,8 @@ public class NewRelicListener implements Listener {
 			NewRelic.setTransactionName(null, "CommandEvent");
 			NewRelic.addCustomParameter("commandSender", e.getSender().toString());
 			NewRelic.addCustomParameter("command", e.getCommand());
+		} else {
+			NewRelic.ignoreTransaction();
 		}
 	}
 	
@@ -230,6 +254,8 @@ public class NewRelicListener implements Listener {
 				newchunk = "false";
 			}
 			NewRelic.addCustomParameter("chunkNew", newchunk);
+		} else {
+			NewRelic.ignoreTransaction();
 		}
 	}
 	
@@ -240,6 +266,8 @@ public class NewRelicListener implements Listener {
 				configGetter.getConfig().getBoolean("track.chunk.unload") == true ) {
 			NewRelic.setTransactionName(null, "ChunkUnloadEvent");
 			NewRelic.addCustomParameter("chunkName", e.getChunk().toString());
+		} else {
+			NewRelic.ignoreTransaction();
 		}
 	}
 	
