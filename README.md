@@ -26,7 +26,7 @@ This Bukkit plugin allows people with a free or paid New Relic account to send p
 # Permissions
 
 * newrelic.admin: false
-    * Allows you to enable or disable reporting
+    * Allows you to enable or disable reporting, and check for updates.
 
 # Configuration
 

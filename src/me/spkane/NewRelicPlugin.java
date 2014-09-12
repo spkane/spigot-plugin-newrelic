@@ -55,9 +55,9 @@ public class NewRelicPlugin extends JavaPlugin {
 	
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		
-		if(cmd.getName().equalsIgnoreCase("nrdisable") && sender instanceof Player) {
+		if (cmd.getName().equalsIgnoreCase("nrdisable") && sender instanceof Player) {
 			Player player = (Player) sender;
-			if(player.hasPermission("newrelic.admin")) {
+			if (player.hasPermission("newrelic.admin")) {
 				this.getConfig().set("enabled", false);
 				saveConfig();
 				player.sendMessage( ChatColor.GREEN + "New Relic plugin reporting has been disabled.");
@@ -67,7 +67,7 @@ public class NewRelicPlugin extends JavaPlugin {
 			return true;
 		} else if (cmd.getName().equalsIgnoreCase("nrenable") && sender instanceof Player) {
 			Player player = (Player) sender;
-			if(player.hasPermission("newrelic.admin")) {
+			if (player.hasPermission("newrelic.admin")) {
 				this.getConfig().set("enabled", true);
 				saveConfig();
 				player.sendMessage( ChatColor.GREEN + "New Relic plugin reporting has been enabled.");
@@ -75,20 +75,26 @@ public class NewRelicPlugin extends JavaPlugin {
 				player.sendMessage( ChatColor.RED + "Sorry, but you don't have permissions for this!");
 			}
 			return true;
-		} else if (cmd.getName().equalsIgnoreCase("nrcheck")) {
-	        Updater updater = new Updater(this, 84649, this.getFile(), UpdateType.NO_DOWNLOAD, this.getConfig().getBoolean("updates.progress"));
-			if (updater.getResult() == UpdateResult.UPDATE_AVAILABLE) {
-			    this.getServer().broadcastMessage("New Relic plugin update available! " + updater.getLatestName());
-			} else {
-				this.getServer().broadcastMessage("There is no New Relic plugin update available.");
+		} else if (cmd.getName().equalsIgnoreCase("nrcheck") && sender instanceof Player) {
+			Player player = (Player) sender;
+			if (player.hasPermission("newrelic.admin")) {
+	            Updater updater = new Updater(this, 84649, this.getFile(), UpdateType.NO_DOWNLOAD, this.getConfig().getBoolean("updates.progress"));
+			    if (updater.getResult() == UpdateResult.UPDATE_AVAILABLE) {
+	                player.sendMessage( ChatColor.GREEN + "New Relic plugin update available! " + updater.getLatestName());
+			    } else {
+	                player.sendMessage( ChatColor.RED + "There is no New Relic plugin update available.");
+			    }
 			}
 			return true;
-		} else if (cmd.getName().equalsIgnoreCase("nrupdate")) {
-	        Updater updater = new Updater(this, 84649, this.getFile(), UpdateType.DEFAULT, this.getConfig().getBoolean("updates.progress"));
-			if (updater.getResult() == UpdateResult.UPDATE_AVAILABLE) {
-			    this.getServer().broadcastMessage("Downloading New Relic plugin update! " + updater.getLatestName());
-			} else {
-				this.getServer().broadcastMessage("There is no New Relic plugin update available.");
+		} else if (cmd.getName().equalsIgnoreCase("nrupdate") && sender instanceof Player) {
+			Player player = (Player) sender;
+			if (player.hasPermission("newrelic.admin")) {
+			    Updater updater = new Updater(this, 84649, this.getFile(), UpdateType.DEFAULT, this.getConfig().getBoolean("updates.progress"));
+			    if (updater.getResult() == UpdateResult.UPDATE_AVAILABLE) {
+                    player.sendMessage( ChatColor.GREEN + "Downloading New Relic plugin update! " + updater.getLatestName());
+			    } else {
+                    player.sendMessage( ChatColor.RED + "There is no New Relic plugin update available.");
+			    }
 			}
 			return true;
 		}
