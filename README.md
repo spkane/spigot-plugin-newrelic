@@ -8,7 +8,7 @@ This Bukkit plugin allows people with a free or paid New Relic account to send p
 * Add "-javaagent:newrelic/newrelic.jar" to the java launch command that you use for your server.
 * Add the newrelic-api.jar to your launch classpath with something like "-cp craftbukkit.jar:newrelic/newrelic-api.jar"
     * Note: that if you were using "-jar craftbukkit.jar" to launch craftbukkit, you will want to remove this and replace it with "-cp   craftbukkit.jar:newrelic/newrelic-api.jar org.bukkit.craftbukkit.Main"
-    * We don't include this as you might already be using New Relic, and we must ensure the newrelic jar and the newrelic-api jar are    the same version.
+    * We don't include this as you might already be using New Relic, and we must ensure the newrelic jar and the newrelic-api jar are the same version.
 * Edit newrelic/newrelic.yml and at a minimum ensure that your *license_key* and *app_name* are set appropriately.
 
 # Features
@@ -30,7 +30,7 @@ This Bukkit plugin allows people with a free or paid New Relic account to send p
 
 # Configuration
 
-``
+```
 enabled: true
 updates:
   apply: true
