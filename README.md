@@ -68,5 +68,5 @@ This plugin is the results of a lot of things, including:
 * [StromCoreFilms great Bukkit Tutorials on YouTube](https://www.youtube.com/playlist?list=PLlmh-IYCohJ931R6Yv8uNAZoZEPQj5kPR)
 
 
-**NOTE:** Comments can be posted on bukkit.org
+**NOTE:** The future of bukkit is in a lot of doubt at the moment. You can post issues, etc. to the [GitHub repo](https://github.com/spkane/bukkit-plugin-newrelic).
 
