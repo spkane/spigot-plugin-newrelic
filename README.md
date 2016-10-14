@@ -1,13 +1,13 @@
-This Bukkit plugin allows people with a free or paid New Relic account to send performance data about their Minecraft server and details about core events that occur on their server to New Relic's platform for analysis and graphing.
+This Spigot plugin allows people with a free or paid New Relic account to send performance data about their Minecraft server and details about core events that occur on their server to New Relic's platform for analysis and graphing.
 
 # Installation
 
 * Create a New Relic account, if you don't have one.
 * Download the latest New Relic Java Agent for manual installs from New Relic's Web Site.
-* Unzip the archive in the root directory of your minecraft server. The same location as your Craftbukkit jar.
+* Unzip the archive in the root directory of your minecraft server. The same location as your Spigot jar.
 * Add "-javaagent:newrelic/newrelic.jar" to the java launch command that you use for your server.
-* Add the newrelic-api.jar to your launch classpath with something like "-cp craftbukkit.jar:newrelic/newrelic-api.jar"
-    * Note: that if you were using "-jar craftbukkit.jar" to launch craftbukkit, you will want to remove this and replace it with "-cp   craftbukkit.jar:newrelic/newrelic-api.jar org.bukkit.craftbukkit.Main"
+* Add the newrelic-api.jar to your launch classpath with something like "-cp spigot.jar:newrelic/newrelic-api.jar"
+    * Note: that if you were using "-jar spigot.jar" to launch the server, you will want to remove this and replace it with "-cp spigot.jar:newrelic/newrelic-api.jar org.bukkit.craftbukkit.Main"
     * We don't include this as you might already be using New Relic, and we must ensure the newrelic jar and the newrelic-api jar are the same version.
 * Edit newrelic/newrelic.yml and at a minimum ensure that your *license_key* and *app_name* are set appropriately.
 
@@ -68,5 +68,5 @@ This plugin is the results of a lot of things, including:
 * [StromCoreFilms great Bukkit Tutorials on YouTube](https://www.youtube.com/playlist?list=PLlmh-IYCohJ931R6Yv8uNAZoZEPQj5kPR)
 
 
-**NOTE:** The future of bukkit is in a lot of doubt at the moment. You can post issues, etc. to the [GitHub repo](https://github.com/spkane/bukkit-plugin-newrelic).
+**NOTE:** You can post issues, etc. to the [GitHub repo](https://github.com/spkane/spigot-plugin-newrelic).
 

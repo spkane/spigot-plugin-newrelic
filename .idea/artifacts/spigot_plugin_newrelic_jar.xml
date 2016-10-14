@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="spigot-plugin-newrelic:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/spigot_plugin_newrelic_jar</output-path>
+    <root id="archive" name="spigot-plugin-newrelic.jar">
+      <element id="module-output" name="spigot-plugin-newrelic" />
+    </root>
+  </artifact>
+</component>

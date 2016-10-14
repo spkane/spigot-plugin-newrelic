@@ -1,0 +1,19 @@
+name: NewRelicPlugin
+main: me.spkane.NewRelicPlugin.NewRelicPlugin
+version: 0.3
+description: 'A New Relic spigot plugin for collecting data from server events and reporting this data to the New Relic platform for analysis and graphing.'
+author: spkane
+database: false
+commands:
+   nrenable:
+      description: 'Enable New Relic plugin reporting.'
+      usage: /<command>
+   nrdisable:
+      description: 'Disable New Relic plugin reporting.'
+      usage: /<command>
+   nrcheck:
+      description: 'Check for an updated New Relic plugin.'
+      usage: /<command>
+   nrupdate:
+      description: 'Download and install an updated New Relic plugin.'
+      usage: /<command>
